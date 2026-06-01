@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -38,6 +39,7 @@ public class Produk {
     @Enumerated(EnumType.STRING)
     private ProductCategory productCategory;
 
+    @Lob
     private byte[] gambar;
 
     @OneToMany(mappedBy = "idProduk")
