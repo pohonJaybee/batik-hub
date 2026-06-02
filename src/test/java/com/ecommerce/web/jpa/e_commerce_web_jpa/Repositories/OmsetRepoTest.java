@@ -77,4 +77,11 @@ public class OmsetRepoTest {
 
         omsetRespository.delete(omset);
     }
+
+    @Test
+    void testGetJumlahProdukTerjual() {
+        Integer jumlahProdukTerjual = omsetRespository.jumlahProdukTerjual();
+
+        Assertions.assertEquals(6, jumlahProdukTerjual);
+    }
 }

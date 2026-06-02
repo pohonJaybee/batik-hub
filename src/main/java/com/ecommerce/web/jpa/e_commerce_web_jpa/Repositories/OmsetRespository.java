@@ -22,4 +22,7 @@ public interface OmsetRespository extends JpaRepository<Omset, Integer> {
 
     @Query("SELECT SUM(o.jumlahPenjualan * p.harga) FROM Omset o JOIN o.idProduk p")
     Double jumlahOmset();
+
+    @Query("SELECT SUM(o.jumlahPenjualan) FROM Omset o")
+    Integer jumlahProdukTerjual();
 }
