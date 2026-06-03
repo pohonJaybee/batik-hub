@@ -44,8 +44,4 @@ public class Transaksi {
     @JoinColumn(name = "id_produk", referencedColumnName = "id")
     private Produk idProduk;
 
-    @ManyToOne
-    @JoinColumn(name = "id_omset", referencedColumnName = "id")
-    private Omset idOmset;
-
 }
