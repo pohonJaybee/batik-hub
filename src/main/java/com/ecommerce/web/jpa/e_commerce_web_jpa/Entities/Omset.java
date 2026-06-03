@@ -1,14 +1,11 @@
 package com.ecommerce.web.jpa.e_commerce_web_jpa.Entities;
 
-import java.util.List;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -34,8 +31,5 @@ public class Omset {
     @OneToOne
     @JoinColumn(name = "produk", referencedColumnName = "id")
     private Produk idProduk;
-
-    @OneToMany(mappedBy = "idOmset")
-    private List<Transaksi> idTransaksi;
 
 }
