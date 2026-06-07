@@ -16,11 +16,9 @@ import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
-import lombok.AllArgsConstructor;
 
 @Service
 @Validated
-@AllArgsConstructor
 public class OmsetServiceImpl implements OmsetService {
 
     @Autowired
@@ -43,12 +41,16 @@ public class OmsetServiceImpl implements OmsetService {
         omsetRespository.save(omsetEntity);
     }
 
+    private void breakRelation(Omset omset) {
+        omset.getIdProduk().setOmset(null);
+        omset.setIdProduk(null);
+    }
+
     @Override
     public void delete(@Positive int id) {
         Omset omset = omsetRespository.findById(id).orElse(null);
 
-        omset.getIdProduk().setOmset(null);
-        omset.setIdProduk(null);
+        breakRelation(omset);
 
         omsetRespository.save(omset);
 

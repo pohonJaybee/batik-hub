@@ -1,5 +1,6 @@
 package com.ecommerce.web.jpa.e_commerce_web_jpa.Service.Transaksi;
 
+import com.ecommerce.web.jpa.e_commerce_web_jpa.Service.Omset.OmsetService;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,9 @@ import com.ecommerce.web.jpa.e_commerce_web_jpa.Dto.Transaksi.TransaksiInsertDTO
 import com.ecommerce.web.jpa.e_commerce_web_jpa.Entities.Member;
 import com.ecommerce.web.jpa.e_commerce_web_jpa.Entities.Produk;
 import com.ecommerce.web.jpa.e_commerce_web_jpa.Entities.Transaksi;
+
 import com.ecommerce.web.jpa.e_commerce_web_jpa.Repositories.TransaksiRepository;
+import com.ecommerce.web.jpa.e_commerce_web_jpa.Service.Produk.ProdukService;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Positive;
@@ -21,6 +24,12 @@ public class TransaksiServiceImpl implements TransaksiService {
 
     @Autowired
     private TransaksiRepository transaksiRepository;
+
+    @Autowired
+    private ProdukService produkService;
+
+    @Autowired
+    private OmsetService omsetService;
 
     @Override
     public void insert(@Valid TransaksiInsertDTO transaksi) {
@@ -41,16 +50,33 @@ public class TransaksiServiceImpl implements TransaksiService {
         transaksiRepository.save(transaksiEntity);
     }
 
-    @Override
-    public void delete(@Positive int idTransaksi) {
-        Transaksi transaksi = transaksiRepository.findById(idTransaksi)
-                .orElse(null);
+    private void reduceStack(Transaksi transaksi) {
+        produkService.kurangiStock(transaksi.getTotalPembelian(), transaksi
+                .getIdProduk().getId());
+    }
 
+    private void addJumlahPenjualan(Transaksi transaksi) {
+        omsetService.tambahJumlahPenjualan(transaksi.getTotalPembelian(), transaksi
+                .getIdProduk().getId());
+    }
+
+    private void breakRelation(Transaksi transaksi) {
         transaksi.getIdMember().setListTransaksi(null);
         transaksi.getIdProduk().setListTransaksi(null);
 
         transaksi.setIdMember(null);
         transaksi.setIdProduk(null);
+    }
+
+    @Override
+    public void delete(@Positive int idTransaksi) {
+        Transaksi transaksi = transaksiRepository.findById(idTransaksi)
+                .orElse(null);
+
+        reduceStack(transaksi);
+        addJumlahPenjualan(transaksi);
+
+        breakRelation(transaksi);
 
         transaksiRepository.delete(transaksi);
     }
