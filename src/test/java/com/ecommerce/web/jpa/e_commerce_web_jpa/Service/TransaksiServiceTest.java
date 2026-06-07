@@ -62,7 +62,7 @@ public class TransaksiServiceTest {
 
     @Test
     void testDeleteSuccess() {
-        transaksiService.delete(2);
+        transaksiService.delete(6);
     }
 
     @Test

@@ -15,11 +15,9 @@ import com.ecommerce.web.jpa.e_commerce_web_jpa.Repositories.ProdukRepository;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
-import lombok.AllArgsConstructor;
 
 @Service
 @Validated
-@AllArgsConstructor
 public class ProdukServiceImpl implements ProdukService {
 
     @Autowired

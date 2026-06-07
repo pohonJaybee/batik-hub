@@ -14,11 +14,9 @@ import com.ecommerce.web.jpa.e_commerce_web_jpa.Repositories.StaffRepository;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
 
 @Service
 @Validated
-@AllArgsConstructor
 public class StaffServiceImpl implements StaffService {
 
     @Autowired
