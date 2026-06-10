@@ -52,7 +52,7 @@ public class MemberControllerTest {
         @Test
         void testGetBuyPage() throws Exception {
                 mockMvc.perform(
-                                post("/buyproduct")
+                                get("/buyproduct")
                                                 .param("idProduk", "A02"))
                                 .andExpect(
                                                 status().isOk());
