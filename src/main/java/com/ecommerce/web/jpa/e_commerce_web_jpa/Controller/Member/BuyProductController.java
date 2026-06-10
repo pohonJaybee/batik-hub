@@ -105,7 +105,7 @@ public class BuyProductController {
 
         transaksiService.insert(transaksiInsertDTO);
 
-        return new ModelAndView("redirect:/findproduct");
+        return new ModelAndView("redirect:/pengiriman");
     }
 
 }
