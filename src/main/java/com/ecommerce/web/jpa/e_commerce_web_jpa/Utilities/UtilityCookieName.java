@@ -9,7 +9,7 @@ public class UtilityCookieName {
     }
 
     public static void setId(String idCookie) {
-        idCookie = id;
+        id = idCookie;
     }
 
 }

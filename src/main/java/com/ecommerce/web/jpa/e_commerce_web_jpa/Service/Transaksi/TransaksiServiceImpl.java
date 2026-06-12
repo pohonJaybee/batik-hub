@@ -3,7 +3,6 @@ package com.ecommerce.web.jpa.e_commerce_web_jpa.Service.Transaksi;
 import com.ecommerce.web.jpa.e_commerce_web_jpa.Service.Omset.OmsetService;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
@@ -17,19 +16,18 @@ import com.ecommerce.web.jpa.e_commerce_web_jpa.Service.Produk.ProdukService;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Positive;
+import lombok.RequiredArgsConstructor;
 
 @Service
 @Validated
+@RequiredArgsConstructor
 public class TransaksiServiceImpl implements TransaksiService {
 
-    @Autowired
-    private TransaksiRepository transaksiRepository;
+    private final TransaksiRepository transaksiRepository;
 
-    @Autowired
-    private ProdukService produkService;
+    private final ProdukService produkService;
 
-    @Autowired
-    private OmsetService omsetService;
+    private final OmsetService omsetService;
 
     @Override
     public void insert(@Valid TransaksiInsertDTO transaksi) {

@@ -2,7 +2,6 @@ package com.ecommerce.web.jpa.e_commerce_web_jpa.Service.Member;
 
 import java.util.UUID;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
@@ -14,13 +13,14 @@ import com.ecommerce.web.jpa.e_commerce_web_jpa.Repositories.MemberRepository;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
+import lombok.RequiredArgsConstructor;
 
 @Service
 @Validated
+@RequiredArgsConstructor
 public class MemberServiceImpl implements MemberService {
 
-    @Autowired
-    private MemberRepository memberRepository;
+    private final MemberRepository memberRepository;
 
     @Override
     public void insert(@Valid MemberInputDTO member) {

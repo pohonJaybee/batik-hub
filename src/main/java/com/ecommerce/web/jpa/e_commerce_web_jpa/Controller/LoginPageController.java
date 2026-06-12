@@ -1,6 +1,5 @@
 package com.ecommerce.web.jpa.e_commerce_web_jpa.Controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,15 +17,15 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import lombok.RequiredArgsConstructor;
 
 @Controller
+@RequiredArgsConstructor
 public class LoginPageController {
 
-    @Autowired
-    private MemberService member;
+    private final MemberService member;
 
-    @Autowired
-    private StaffService staff;
+    private final StaffService staff;
 
     @GetMapping(path = "/login")
     @ResponseStatus(value = HttpStatus.OK)

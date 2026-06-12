@@ -2,7 +2,6 @@ package com.ecommerce.web.jpa.e_commerce_web_jpa.Service.Staff;
 
 import java.util.UUID;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
@@ -14,13 +13,14 @@ import com.ecommerce.web.jpa.e_commerce_web_jpa.Repositories.StaffRepository;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
+import lombok.RequiredArgsConstructor;
 
 @Service
 @Validated
+@RequiredArgsConstructor
 public class StaffServiceImpl implements StaffService {
 
-    @Autowired
-    private StaffRepository staffRepository;
+    private final StaffRepository staffRepository;
 
     @Override
     public void insert(@Valid StaffRequestDTO staffReq) {

@@ -4,12 +4,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 
 import com.ecommerce.web.jpa.e_commerce_web_jpa.Service.Transaksi.TransaksiService;
 import com.ecommerce.web.jpa.e_commerce_web_jpa.Utilities.UtilityCookieName;
+
+import lombok.RequiredArgsConstructor;
 
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,10 +20,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@RequiredArgsConstructor
 public class PengirimanPageController {
 
-    @Autowired
-    private TransaksiService transaksiService;
+    private final TransaksiService transaksiService;
 
     private List<Map<String, Object>> unpackedPengirimanDetail() {
         String idCookie = UtilityCookieName.getId();

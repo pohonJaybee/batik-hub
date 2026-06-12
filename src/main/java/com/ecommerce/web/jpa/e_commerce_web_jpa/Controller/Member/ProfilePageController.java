@@ -3,7 +3,6 @@ package com.ecommerce.web.jpa.e_commerce_web_jpa.Controller.Member;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,11 +12,13 @@ import com.ecommerce.web.jpa.e_commerce_web_jpa.Entities.Member;
 import com.ecommerce.web.jpa.e_commerce_web_jpa.Entities.Embed.Alamat;
 import com.ecommerce.web.jpa.e_commerce_web_jpa.Service.Member.MemberService;
 
+import lombok.RequiredArgsConstructor;
+
 @Controller
+@RequiredArgsConstructor
 public class ProfilePageController {
 
-    @Autowired
-    private MemberService memberService;
+    private final MemberService memberService;
 
     public Map<String, Object> unpackedDetail(Member member) {
         Map<String, Object> memberDetail = new HashMap<>();

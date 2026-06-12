@@ -5,7 +5,6 @@ import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.ModelAndView;
@@ -18,25 +17,25 @@ import com.ecommerce.web.jpa.e_commerce_web_jpa.Service.Member.MemberService;
 import com.ecommerce.web.jpa.e_commerce_web_jpa.Service.Produk.ProdukService;
 import com.ecommerce.web.jpa.e_commerce_web_jpa.Service.Transaksi.TransaksiService;
 
+import lombok.RequiredArgsConstructor;
+
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @Controller
+@RequiredArgsConstructor
 public class BuyProductController {
 
     // memerlukan data idProduk
     private String idProduk;
 
-    @Autowired
-    private ProdukService produkService;
+    private final ProdukService produkService;
 
-    @Autowired
-    private MemberService memberService;
+    private final MemberService memberService;
 
-    @Autowired
-    private TransaksiService transaksiService;
+    private final TransaksiService transaksiService;
 
     private String getIdProduk() {
         return idProduk;

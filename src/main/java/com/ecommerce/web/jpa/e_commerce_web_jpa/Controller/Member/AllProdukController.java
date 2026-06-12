@@ -5,7 +5,6 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.ModelAndView;
@@ -14,16 +13,17 @@ import com.ecommerce.web.jpa.e_commerce_web_jpa.Entities.Produk;
 import com.ecommerce.web.jpa.e_commerce_web_jpa.Service.Produk.ProdukService;
 
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.RequiredArgsConstructor;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
+@RequiredArgsConstructor
 public class AllProdukController {
 
-    @Autowired
-    private ProdukService produkService;
+    private final ProdukService produkService;
 
     private List<Map<String, Object>> unpackProdukList(List<Produk> produks) {
         // bongkar satu persatu melalui stream(), dan ubah ke bentuk map supaya

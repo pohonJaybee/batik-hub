@@ -2,7 +2,6 @@ package com.ecommerce.web.jpa.e_commerce_web_jpa.Service.Produk;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
@@ -15,13 +14,14 @@ import com.ecommerce.web.jpa.e_commerce_web_jpa.Repositories.ProdukRepository;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
+import lombok.RequiredArgsConstructor;
 
 @Service
 @Validated
+@RequiredArgsConstructor
 public class ProdukServiceImpl implements ProdukService {
 
-    @Autowired
-    private ProdukRepository produkRepository;
+    private final ProdukRepository produkRepository;
 
     @Override
     public void insert(@Valid ProdukInsertDTO produk) {
