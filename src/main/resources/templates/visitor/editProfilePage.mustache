@@ -88,9 +88,8 @@
             <label class="text-xs font-medium text-stone-500 block">Nama Lengkap</label>
             <input 
               type="text" 
-              value="Aidil Syahmi" 
               class="w-full bg-white border border-stone-200 rounded-xl px-4 py-3 text-sm text-stone-800 focus:outline-none focus:ring-2 focus:ring-emerald-800 focus:border-emerald-800 transition-all font-medium"
-              placeholder="Masukkan nama lengkap"
+              placeholder="{{member.nama}}"
             >
           </div>
 
@@ -99,9 +98,8 @@
             <label class="text-xs font-medium text-stone-500 block">Alamat Email</label>
             <input 
               type="email" 
-              value="aidillongoi@example.com" 
               class="w-full bg-white border border-stone-200 rounded-xl px-4 py-3 text-sm text-stone-800 focus:outline-none focus:ring-2 focus:ring-emerald-800 focus:border-emerald-800 transition-all font-medium"
-              placeholder="nama@email.com"
+              placeholder="{{member.email}}"
             >
           </div>
 
@@ -131,8 +129,8 @@
             <textarea 
               rows="2" 
               class="w-full bg-white border border-stone-200 rounded-xl px-4 py-3 text-sm text-stone-800 focus:outline-none focus:ring-2 focus:ring-emerald-800 focus:border-emerald-800 transition-all leading-relaxed"
-              placeholder="Contoh: Jl. Anggrek No. 45, RT 02/RW 03"
-            >Jl. Cendrawasih</textarea>
+              placeholder="Contoh: {{member.jalan}}"
+            ></textarea>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -141,9 +139,8 @@
               <label class="text-xs font-medium text-stone-500 block">Kota / Kabupaten</label>
               <input 
                 type="text" 
-                value="Pekanbaru" 
                 class="w-full bg-white border border-stone-200 rounded-xl px-4 py-3 text-sm text-stone-800 focus:outline-none focus:ring-2 focus:ring-emerald-800 focus:border-emerald-800 transition-all"
-                placeholder="Masukkan kota asal"
+                placeholder="{{member.kota}}"
               >
             </div>
 
@@ -152,9 +149,8 @@
               <label class="text-xs font-medium text-stone-500 block">Provinsi</label>
               <input 
                 type="text" 
-                value="Riau" 
                 class="w-full bg-white border border-stone-200 rounded-xl px-4 py-3 text-sm text-stone-800 focus:outline-none focus:ring-2 focus:ring-emerald-800 focus:border-emerald-800 transition-all"
-                placeholder="Masukkan nama provinsi"
+                placeholder="{{member.provinsi}}"
               >
             </div>
           </div>
