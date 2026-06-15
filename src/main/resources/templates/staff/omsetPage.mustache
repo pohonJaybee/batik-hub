@@ -74,7 +74,7 @@
       <div class="bg-white p-5 rounded-2xl border border-stone-200/80 shadow-sm flex items-center justify-between">
         <div class="space-y-1">
           <p class="text-xs font-medium text-stone-400 uppercase tracking-wider">Total Omset Penjualan</p>
-          <h3 class="text-2xl font-bold font-mono text-emerald-800">Rp 14.850.000</h3>
+          <h3 class="text-2xl font-bold font-mono text-emerald-800">$ {{totalOmset}}</h3>
         </div>
         <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center border border-emerald-100">
           <i data-lucide="dollar-sign" class="w-6 h-6"></i>
@@ -84,7 +84,7 @@
       <div class="bg-white p-5 rounded-2xl border border-stone-200/80 shadow-sm flex items-center justify-between">
         <div class="space-y-1">
           <p class="text-xs font-medium text-stone-400 uppercase tracking-wider">Total Produk Terjual</p>
-          <h3 class="text-2xl font-bold font-mono text-stone-800">54 <span class="text-xs font-sans text-stone-400 font-normal">Pcs</span></h3>
+          <h3 class="text-2xl font-bold font-mono text-stone-800">{{totalProdukTerjual}} <span class="text-xs font-sans text-stone-400 font-normal">Pcs</span></h3>
         </div>
         <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center border border-amber-100">
           <i data-lucide="check-check" class="w-6 h-6"></i>
@@ -118,45 +118,17 @@
           <tbody class="divide-y divide-stone-100 text-sm">
             
             <!-- Item 1 -->
+             {{#produks}}
             <tr class="hover:bg-stone-50/40 transition-colors">
               <td class="py-4 px-6">
-                <div class="font-semibold text-stone-800">Kain Batik Tulis Sutra Solo Motif Parang</div>
-                <div class="text-[11px] text-stone-400 font-mono">ID: BTK-PAR-001</div>
+                <div class="font-semibold text-stone-800">{{namaProduk}}</div>
+                <div class="text-[11px] text-stone-400 font-mono">ID: {{idProduk}}</div>
               </td>
-              <td class="py-4 px-6 text-center font-bold text-stone-700 font-mono">20</td>
-              <td class="py-4 px-6 text-right font-semibold text-emerald-800 font-mono">Rp 5.500.000</td>
+              <td class="py-4 px-6 text-center font-bold text-stone-700 font-mono">{{stockTerjualPerProduk}}</td>
+              <td class="py-4 px-6 text-right font-semibold text-emerald-800 font-mono">$ {{omsetPerProduk}}</td>
             </tr>
-
-            <!-- Item 2 -->
-            <tr class="hover:bg-stone-50/40 transition-colors">
-              <td class="py-4 px-6">
-                <div class="font-semibold text-stone-800">Kemeja Pria Batik Cap Mangkunegaran</div>
-                <div class="text-[11px] text-stone-400 font-mono">ID: BTK-MN-042</div>
-              </td>
-              <td class="py-4 px-6 text-center font-bold text-stone-700 font-mono">15</td>
-              <td class="py-4 px-6 text-right font-semibold text-emerald-800 font-mono">Rp 4.125.000</td>
-            </tr>
-
-            <!-- Item 3 -->
-            <tr class="hover:bg-stone-50/40 transition-colors">
-              <td class="py-4 px-6">
-                <div class="font-semibold text-stone-800">Kain Batik Cap Motif Megamendung Biru</div>
-                <div class="text-[11px] text-stone-400 font-mono">ID: BTK-MGM-012</div>
-              </td>
-              <td class="py-4 px-6 text-center font-bold text-stone-700 font-mono">12</td>
-              <td class="py-4 px-6 text-right font-semibold text-emerald-800 font-mono">Rp 3.300.000</td>
-            </tr>
-
-            <!-- Item 4 -->
-            <tr class="hover:bg-stone-50/40 transition-colors">
-              <td class="py-4 px-6">
-                <div class="font-semibold text-stone-800">Selendang Sutra Batik Tulis Lasem</div>
-                <div class="text-[11px] text-stone-400 font-mono">ID: BTK-LSM-009</div>
-              </td>
-              <td class="py-4 px-6 text-center font-bold text-stone-700 font-mono">7</td>
-              <td class="py-4 px-6 text-right font-semibold text-emerald-800 font-mono">Rp 1.925.000</td>
-            </tr>
-
+            {{/produks}}
+            
           </tbody>
         </table>
       </div>
