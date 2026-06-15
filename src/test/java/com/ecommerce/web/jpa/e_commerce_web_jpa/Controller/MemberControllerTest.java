@@ -1,4 +1,4 @@
-package com.ecommerce.web.jpa.e_commerce_web_jpa.Controller.Member;
+package com.ecommerce.web.jpa.e_commerce_web_jpa.Controller;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
