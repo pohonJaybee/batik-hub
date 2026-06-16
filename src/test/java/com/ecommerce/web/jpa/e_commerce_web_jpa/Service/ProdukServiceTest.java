@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.mock.web.MockMultipartFile;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.ecommerce.web.jpa.e_commerce_web_jpa.Dto.Produk.ProdukInsertDTO;
 import com.ecommerce.web.jpa.e_commerce_web_jpa.Dto.Produk.ProdukUpdateDTO;
@@ -29,13 +31,19 @@ public class ProdukServiceTest {
         Path of = Path.of("batikhub-erd.png");
         byte[] allBytes = Files.readAllBytes(of);
 
+        MultipartFile mockMultipartFile = new MockMultipartFile(
+                "gambar", // nama field
+                "batikhub-erd.png", // nama file asli
+                "image/png", // tipe file
+                allBytes); // byteFile
+
         ProdukInsertDTO produk = new ProdukInsertDTO();
         produk.setId("BTK-345-K");
         produk.setNama("Kain Mega Mendung");
         produk.setStock(10);
         produk.setHarga(13.46);
         produk.setProductCategory("KAIN");
-        produk.setGambar(allBytes);
+        produk.setGambar(mockMultipartFile);
 
         produkService.insert(produk);
     }
