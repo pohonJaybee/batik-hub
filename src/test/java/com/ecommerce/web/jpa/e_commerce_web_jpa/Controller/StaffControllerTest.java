@@ -22,4 +22,11 @@ public class StaffControllerTest {
                 get("/dashboard")).andExpect(
                         status().isOk());
     }
+
+    @Test
+    void testGetAddProduk() throws Exception {
+        mockMvc.perform(
+                get("/addproduk")).andExpect(
+                        status().isOk());
+    }
 }
