@@ -2,6 +2,8 @@ package com.ecommerce.web.jpa.e_commerce_web_jpa.Dto.Produk;
 
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import com.ecommerce.web.jpa.e_commerce_web_jpa.Entities.Omset;
 import com.ecommerce.web.jpa.e_commerce_web_jpa.Entities.Transaksi;
 
@@ -27,7 +29,7 @@ public class ProdukInsertDTO {
     @NotBlank
     private String productCategory;
 
-    private byte[] gambar;
+    private MultipartFile gambar;
 
     private List<Transaksi> listTransaksi;
 
