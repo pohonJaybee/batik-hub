@@ -1,5 +1,6 @@
 package com.ecommerce.web.jpa.e_commerce_web_jpa.Service.Produk;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -32,7 +33,11 @@ public class ProdukServiceImpl implements ProdukService {
         produkEntity.setHarga(produk.getHarga());
         produkEntity.setProductCategory(ProductCategory
                 .valueOf(produk.getProductCategory()));
-        produkEntity.setGambar(produk.getGambar());
+        try {
+            produkEntity.setGambar(produk.getGambar().getBytes());
+        } catch (IOException e) {
+            throw new RuntimeException("gambar tidak bisa di-upload");
+        }
 
         produkRepository.save(produkEntity);
     }
