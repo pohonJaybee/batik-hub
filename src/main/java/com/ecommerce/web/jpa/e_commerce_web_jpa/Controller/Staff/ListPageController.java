@@ -14,6 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ecommerce.web.jpa.e_commerce_web_jpa.Service.Produk.ProdukService;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequiredArgsConstructor
@@ -51,6 +53,13 @@ public class ListPageController {
     public ModelAndView getMethodName() {
         return new ModelAndView("staff/listPage", Map.of(
                 "produk", unpackedDetailProduk()));
+    }
+
+    @PostMapping(path = "/deleteproduct")
+    public ModelAndView postMethodName(@RequestParam String idProduk) {
+        produkService.delete(idProduk);
+
+        return new ModelAndView("redirect:/listproduk");
     }
 
 }
