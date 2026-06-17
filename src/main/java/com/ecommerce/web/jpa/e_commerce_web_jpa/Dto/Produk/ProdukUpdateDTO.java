@@ -1,5 +1,7 @@
 package com.ecommerce.web.jpa.e_commerce_web_jpa.Dto.Produk;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Data;
 
 @Data
@@ -11,9 +13,9 @@ public class ProdukUpdateDTO {
 
     private Integer stock;
 
-    private double harga;
+    private Double harga;
 
     private String productCategory;
 
-    private byte[] gambar;
+    private MultipartFile gambar;
 }
