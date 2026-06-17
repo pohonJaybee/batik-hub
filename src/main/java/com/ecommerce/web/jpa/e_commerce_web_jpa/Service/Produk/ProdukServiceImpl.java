@@ -74,7 +74,8 @@ public class ProdukServiceImpl implements ProdukService {
                 produk.getHarga() > 0)
             produkFindId.setHarga(produk.getHarga());
 
-        if (produk.getStock() != null)
+        if (produk.getStock() != null &&
+                (produk.getStock() != produkFindId.getStock()))
             produkFindId.setStock(produkFindId.getStock() +
                     produk.getStock());
 
@@ -82,8 +83,13 @@ public class ProdukServiceImpl implements ProdukService {
             produkFindId.setProductCategory(ProductCategory
                     .valueOf(produk.getProductCategory()));
 
-        if (produk.getGambar() != null && produk.getGambar().length > 0)
-            produkFindId.setGambar(produk.getGambar());
+        if (produk.getGambar() != null && !produk.getGambar().isEmpty()) {
+            try {
+                produkFindId.setGambar(produk.getGambar().getBytes());
+            } catch (IOException e) {
+                throw new RuntimeException("fail update gambar");
+            }
+        }
 
         return produkRepository.save(produkFindId);
     }

@@ -138,7 +138,7 @@ public class ProdukServiceTest {
         produk.setNama("Kemeja Batik Biru");
         produk.setProductCategory("");
         produk.setStock(5);
-        produk.setHarga(0);
+        produk.setHarga(0.0);
 
         Produk update = produkService.update("A02", produk);
 
@@ -153,7 +153,7 @@ public class ProdukServiceTest {
         produk.setNama("Kemeja Batik Biru");
         produk.setProductCategory("");
         produk.setStock(5);
-        produk.setHarga(0);
+        produk.setHarga(0.0);
 
         Assertions.assertThrows(Exception.class, () -> {
             produkService.update("A2", produk);
