@@ -6,13 +6,16 @@ import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ecommerce.web.jpa.e_commerce_web_jpa.Dto.Member.MemberUpdateDTO;
 import com.ecommerce.web.jpa.e_commerce_web_jpa.Entities.Member;
 import com.ecommerce.web.jpa.e_commerce_web_jpa.Entities.Embed.Alamat;
 import com.ecommerce.web.jpa.e_commerce_web_jpa.Service.Member.MemberService;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 @RequiredArgsConstructor
@@ -43,6 +46,16 @@ public class EditProfileController {
 
         return new ModelAndView("visitor/editProfilePage", Map.of(
                 "member", unpackedDetail));
+    }
+
+    @PostMapping(path = "/updateprofile")
+    public ModelAndView postUpdateDataMember(
+            @CookieValue(value = "id") String idmember,
+            @ModelAttribute MemberUpdateDTO member) {
+
+        memberService.update(idmember, member);
+
+        return new ModelAndView("redirect:/profile");
     }
 
 }
