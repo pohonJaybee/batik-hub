@@ -2,10 +2,14 @@ package com.ecommerce.web.jpa.e_commerce_web_jpa.Dto.Member;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 public class AlamatDTO {
 
     @NotBlank
