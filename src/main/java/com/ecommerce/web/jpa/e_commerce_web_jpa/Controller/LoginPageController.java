@@ -58,8 +58,14 @@ public class LoginPageController {
 
         } else if (memberResult == null && staffResult != null) {
 
+            String id = staffResult.getId();
+
             HttpSession session = request.getSession();
-            session.setAttribute("idMember", staffResult.getId());
+            session.setAttribute("idEmployee", id);
+
+            Cookie cookie = new Cookie("id", id);
+            cookie.setPath("/");
+            response.addCookie(cookie);
 
             return new ModelAndView("redirect:/");
 
