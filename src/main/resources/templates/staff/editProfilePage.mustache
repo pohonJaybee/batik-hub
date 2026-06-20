@@ -57,7 +57,7 @@
       </div>
 
       <!-- Body Form -->
-      <form class="p-6 space-y-6">
+      <form action="/updatedataemployee" method="post" class="p-6 space-y-6">
         
         <!-- SECTION 1: DATA READ-ONLY (TIDAK BISA DIEDIT) -->
         <div class="bg-stone-50/60 p-4 rounded-xl border border-stone-200/60 grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -67,7 +67,7 @@
             <label class="text-[10px] font-bold text-stone-400 uppercase tracking-wider block">Jabatan Sistem</label>
             <div class="flex items-center gap-2 px-3 py-2 bg-stone-200/40 border border-stone-200 text-stone-500 text-xs font-medium rounded-xl select-none cursor-not-allowed">
               <i data-lucide="shield" class="w-4 h-4 text-stone-400"></i>
-              <span>Staff Administrator</span>
+              <span>{{staff.role}}</span>
             </div>
           </div>
 
@@ -76,7 +76,7 @@
             <label class="text-[10px] font-bold text-stone-400 uppercase tracking-wider block">ID Karyawan</label>
             <div class="flex items-center gap-2 px-3 py-2 bg-stone-200/40 border border-stone-200 text-stone-500 text-xs font-mono font-bold rounded-xl select-none cursor-not-allowed">
               <i data-lucide="id-card" class="w-4 h-4 text-stone-400"></i>
-              <span>STF-2026-0042</span>
+              <span>{{staff.id}}</span>
             </div>
           </div>
 
@@ -92,7 +92,7 @@
               <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-stone-400">
                 <i data-lucide="user" class="w-4 h-4"></i>
               </span>
-              <input type="text" id="inputNama" value="Taufiiq" class="w-full pl-10 pr-4 py-2.5 bg-white text-stone-800 text-sm font-medium rounded-xl border border-stone-200 focus:outline-none focus:border-amber-600 focus:ring-1 focus:ring-amber-600 transition-all shadow-sm" placeholder="Masukkan nama lengkap">
+              <input type="text" name="name" value="{{staff.name}}" class="w-full pl-10 pr-4 py-2.5 bg-white text-stone-800 text-sm font-medium rounded-xl border border-stone-200 focus:outline-none focus:border-amber-600 focus:ring-1 focus:ring-amber-600 transition-all shadow-sm" placeholder="Masukkan nama lengkap">
             </div>
           </div>
 
@@ -103,7 +103,7 @@
               <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-stone-400">
                 <i data-lucide="mail" class="w-4 h-4"></i>
               </span>
-              <input type="email" id="inputEmail" value="topek@batikhub.com" class="w-full pl-10 pr-4 py-2.5 bg-white text-stone-800 font-mono text-sm rounded-xl border border-stone-200 focus:outline-none focus:border-amber-600 focus:ring-1 focus:ring-amber-600 transition-all shadow-sm" placeholder="karyawan@batikhub.com">
+              <input type="email" name="email" value="{{staff.email}}" class="w-full pl-10 pr-4 py-2.5 bg-white text-stone-800 font-mono text-sm rounded-xl border border-stone-200 focus:outline-none focus:border-amber-600 focus:ring-1 focus:ring-amber-600 transition-all shadow-sm" placeholder="karyawan@batikhub.com">
             </div>
           </div>
 
@@ -114,7 +114,7 @@
               <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-stone-400">
                 <i data-lucide="key-round" class="w-4 h-4"></i>
               </span>
-              <input type="text" id="inputPassword" value="topekLongoi123" class="w-full pl-10 pr-4 py-2.5 bg-white text-stone-800 font-mono text-sm rounded-xl border border-stone-200 focus:outline-none focus:border-amber-600 focus:ring-1 focus:ring-amber-600 transition-all shadow-sm" placeholder="Masukkan kata sandi baru">
+              <input type="text" name="password" value="{{staff.password}}" class="w-full pl-10 pr-4 py-2.5 bg-white text-stone-800 font-mono text-sm rounded-xl border border-stone-200 focus:outline-none focus:border-amber-600 focus:ring-1 focus:ring-amber-600 transition-all shadow-sm" placeholder="Masukkan kata sandi baru">
             </div>
           </div>
 
