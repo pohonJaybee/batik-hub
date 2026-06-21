@@ -4,5 +4,6 @@ public enum Role {
 
     CEO,
     FINANCE,
+    HR,
     STAFF
 }

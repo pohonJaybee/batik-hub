@@ -1,5 +1,6 @@
 package com.ecommerce.web.jpa.e_commerce_web_jpa.Service.Staff;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
@@ -68,6 +69,11 @@ public class StaffServiceImpl implements StaffService {
         Staff staff = staffRepository.findById(id).orElse(null);
 
         staffRepository.delete(staff);
+    }
+
+    @Override
+    public List<Staff> findAll() {
+        return staffRepository.findAll();
     }
 
 }
