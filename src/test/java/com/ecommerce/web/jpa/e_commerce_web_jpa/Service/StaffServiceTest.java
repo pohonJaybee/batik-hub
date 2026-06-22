@@ -21,10 +21,10 @@ public class StaffServiceTest {
     @Test
     void testInsertSuccess() {
         StaffRequestDTO staffRequestDTO = new StaffRequestDTO();
-        staffRequestDTO.setEmail("abu@gmail.com");
-        staffRequestDTO.setPassword("abu");
-        staffRequestDTO.setName("abU");
-        staffRequestDTO.setRole("STAFF");
+        staffRequestDTO.setEmail("khairy@gmail.com");
+        staffRequestDTO.setPassword("khairy123");
+        staffRequestDTO.setName("Khairy Aimar");
+        staffRequestDTO.setRole("HR");
 
         staffService.insert(staffRequestDTO);
     }
