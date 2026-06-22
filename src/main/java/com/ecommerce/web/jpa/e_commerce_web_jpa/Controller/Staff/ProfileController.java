@@ -24,7 +24,7 @@ public class ProfileController {
 
         Staff byId = staffService.findById(id);
 
-        if (!byId.getRole().equals(Role.STAFF)) {
+        if (!byId.getRole().equals(Role.STAFF) && byId.getRole().equals(Role.FINANCE)) {
 
             return new ModelAndView("staff/Hr/profilePage", Map.of(
                     "staff", byId));
