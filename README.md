@@ -43,11 +43,42 @@ The `Member`👥 entity has a **Many-to-Many** relationship with the `Produk`�
 Additionally, I also added a `Staff`👔 table, which isn't related to any other entities. There's no specific reason to add this table. However, I want this application to run according to industry standards, as there will definitely be employees using the application, so a `Staff`👔 table is necessary. The reason this table doesn't have a relationship with any other entities is because there's no corresponding table to relate it to, so I decided to leave this table as a standalone table without any relationships.
 
 ## 🌟 Key Features
-- **Dual-Role Authentication** 
-Integrated custom authentication for both `Members` (customers) and `Staff` (employees) using secure `HandlerInterceptor` and Session Management.
-- **Product Catalog & Advanced Search** 
+- **Dual-Role Authentication :** Integrated custom authentication for both `Members` (customers) and `Staff` (employees) using secure `HandlerInterceptor` and Session Management.
+- **Product Catalog & Advanced Search :** 
 Dynamic product exploration allowing users to filter and find batik by names or specific attributes.
-- **Automated Sales & Revenue Tracker** 
+- **Automated Sales & Revenue Tracker :** 
 Real-time data synchronization between `Transaksi` and the `Omset` table, utilizing Spring Data JPA to automatically update sales metrics upon order placement.
-- **Secure Route Whitelisting** 
+- **Secure Route Whitelisting :** 
 Strict URL access control ensuring only public endpoints (like `/promo` and `/findproduct`) are open, while sensitive views like `/profile` require authentication.
+
+## 🚀 Getting Started
+Follow these steps to run the project locally:
+
+### Prerequisites
+- Java Development Kit (JDK) 17 or higher
+- PostgreSQL
+- Maven
+
+### Installation & Setup
+1. **Clone the repository :**
+   ```bash
+   git clone https://github.com/Saujana-Wiyata/batik-hub.git
+   cd batik-hub
+   ```
+
+2. **Database Configuration :**
+Create a database for this project in your PostgreSQL. Then, configure your `src/main/resources/application.properties`.
+
+**minimum configuration :**
+
+```Properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/[database_name]
+spring.datasource.username=your_postgresql_username
+spring.datasource.password=your_postgresql_password
+```
+3. **Run the Application :**
+Run this command in your project terminal :
+```Bash
+mvn spring-boot:run
+```
+Open http://localhost:8080 in your browser.
