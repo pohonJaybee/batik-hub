@@ -41,3 +41,13 @@ There are 3 main entities :
 The `Member`👥 entity has a **Many-to-Many** relationship with the `Produk`📦 entity because many buyers can buy many products at once. However, I need additional data between these two entities, namely the purchase date📅 and the date the products arrived🚚, so I added a transaction to the ERD, namely `Transaksi`💳. In addition, the relationship between `Produk` and `Omset`📊 is **One-to-One** because one product can only have one in the `Omset` table. If there is a new transaction, the `Omset` table will automatically update through the `Produk` table and there is no need to add new data to the `Omset` table, just update the `jumlah_penjualan` column.
 
 Additionally, I also added a `Staff`👔 table, which isn't related to any other entities. There's no specific reason to add this table. However, I want this application to run according to industry standards, as there will definitely be employees using the application, so a `Staff`👔 table is necessary. The reason this table doesn't have a relationship with any other entities is because there's no corresponding table to relate it to, so I decided to leave this table as a standalone table without any relationships.
+
+## 🌟 Key Features
+- **Dual-Role Authentication** 
+Integrated custom authentication for both `Members` (customers) and `Staff` (employees) using secure `HandlerInterceptor` and Session Management.
+- **Product Catalog & Advanced Search** 
+Dynamic product exploration allowing users to filter and find batik by names or specific attributes.
+- **Automated Sales & Revenue Tracker** 
+Real-time data synchronization between `Transaksi` and the `Omset` table, utilizing Spring Data JPA to automatically update sales metrics upon order placement.
+- **Secure Route Whitelisting** 
+Strict URL access control ensuring only public endpoints (like `/promo` and `/findproduct`) are open, while sensitive views like `/profile` require authentication.
