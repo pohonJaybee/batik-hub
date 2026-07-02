@@ -50,3 +50,35 @@ Dynamic product exploration allowing users to filter and find batik by names or 
 Real-time data synchronization between `Transaksi` and the `Omset` table, utilizing Spring Data JPA to automatically update sales metrics upon order placement.
 - **Secure Route Whitelisting :** 
 Strict URL access control ensuring only public endpoints (like `/promo` and `/findproduct`) are open, while sensitive views like `/profile` require authentication.
+
+## 🚀 Getting Started
+Follow these steps to run the project locally:
+
+### Prerequisites
+- Java Development Kit (JDK) 17 or higher
+- PostgreSQL
+- Maven
+
+### Installation & Setup
+1. **Clone the repository :**
+   ```bash
+   git clone https://github.com/Saujana-Wiyata/batik-hub.git
+   cd batik-hub
+   ```
+
+2. **Database Configuration :**
+Create a database for this project in your PostgreSQL. Then, configure your `src/main/resources/application.properties`.
+
+**minimum configuration :**
+
+```Properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/[database_name]
+spring.datasource.username=your_postgresql_username
+spring.datasource.password=your_postgresql_password
+```
+3. **Run the Application :**
+Run this command in your project terminal :
+```Bash
+mvn spring-boot:run
+```
+Open http://localhost:8080 in your browser.
