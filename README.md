@@ -67,18 +67,18 @@ Follow these steps to run the project locally:
    ```
 
 2. **Database Configuration :**
-Create a database for this project in your PostgreSQL. Then, configure your `src/main/resources/application.properties`.
+    Create a database for this project in your PostgreSQL. Then, configure your `src/main/resources/application.properties`.
 
-**minimum configuration :**
+    **minimum configuration :**
 
-```Properties
-spring.datasource.url=jdbc:postgresql://localhost:5432/[database_name]
-spring.datasource.username=your_postgresql_username
-spring.datasource.password=your_postgresql_password
-```
+    ```Properties
+    spring.datasource.url=jdbc:postgresql://localhost:5432/[database_name]
+    spring.datasource.username=your_postgresql_username
+    spring.datasource.password=your_postgresql_password
+    ```
 3. **Run the Application :**
-Run this command in your project terminal :
-```Bash
-mvn spring-boot:run
-```
-Open http://localhost:8080 in your browser.
+    Run this command in your project terminal :
+    ```Bash
+    mvn spring-boot:run
+    ```
+    Open http://localhost:8080 in your browser.
