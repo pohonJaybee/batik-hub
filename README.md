@@ -42,6 +42,32 @@ The `Member`👥 entity has a **Many-to-Many** relationship with the `Produk`�
 
 Additionally, I also added a `Staff`👔 table, which isn't related to any other entities. There's no specific reason to add this table. However, I want this application to run according to industry standards, as there will definitely be employees using the application, so a `Staff`👔 table is necessary. The reason this table doesn't have a relationship with any other entities is because there's no corresponding table to relate it to, so I decided to leave this table as a standalone table without any relationships.
 
+## 🧬 Entity Operations & Data Access
+Here is the list of database operations (Spring Data JPA Repository methods) implemented and utilized for each entity in this project:
+
+### 👤 Member Entity
+Besides the usual CRUD method provided by Spring Jpa, I used the custom method:
+- `findByEmailAndPassword` — Find data member in database by their email and password for authenticating during login. 
+
+### 👕 Produk Entity
+Besides the usual CRUD method provided by Spring Jpa, I used the custom method:
+- `reduceStock` — Reducing the stock of products that have been successfully sold.
+- `findByNameLike` — Search for products by name.
+
+### 💳 Transaksi Entity
+Use CRUD method that provided by Spring Jpa without any custom method.
+
+### 📊 Omset Entity
+Besides the usual CRUD method provided by Spring Jpa (except regular update), I used the custom method:
+- `tambahJumlahPenjualan` — Increase the sales volume of each product.
+- `jumlahHargaPerProduk` — Summarize the revenue for each product.
+- `jumlahOmset` — Summarize the revenue for all products.
+- `jumlahProdukTerjual` — Summarize total quantity sold for all products.
+
+### 👔 Staff Entity
+Besides the usual CRUD method provided by Spring Jpa, I used the custom method:
+- `findByEmailAndPassword` — Find data staff in database by their email and password for authenticating during login. 
+
 ## 🌟 Key Features
 - **Dual-Role Authentication :** Integrated custom authentication for both `Members` (customers) and `Staff` (employees) using secure `HandlerInterceptor` and Session Management.
 - **Product Catalog & Advanced Search :** 
@@ -50,6 +76,7 @@ Dynamic product exploration allowing users to filter and find batik by names or 
 Real-time data synchronization between `Transaksi` and the `Omset` table, utilizing Spring Data JPA to automatically update sales metrics upon order placement.
 - **Secure Route Whitelisting :** 
 Strict URL access control ensuring only public endpoints (like `/promo` and `/findproduct`) are open, while sensitive views like `/profile` require authentication.
+
 
 ## 🚀 Getting Started
 Follow these steps to run the project locally:
@@ -61,7 +88,7 @@ Follow these steps to run the project locally:
 
 ### Installation & Setup
 1. **Clone the repository :**
-   ```bash
+   ```Bash
    git clone https://github.com/Saujana-Wiyata/batik-hub.git
    cd batik-hub
    ```
@@ -77,7 +104,7 @@ Follow these steps to run the project locally:
     spring.datasource.password=your_postgresql_password
     ```
 3. **Run the Application :**
-    Run this command in your project terminal :
+    Run this command in your project terminal.
     ```Bash
     mvn spring-boot:run
     ```
