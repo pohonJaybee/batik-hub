@@ -66,7 +66,7 @@ Besides the usual CRUD method provided by Spring Jpa (except regular update), I 
 
 ### 👔 Staff Entity
 Besides the usual CRUD method provided by Spring Jpa, I used the custom method:
-- `findByEmailAndPassword` — Find data staff in database by their email and password for authenticating during login. 
+- `findByEmailAndPassword` — Find data staff in database by their email and password for authenticating during login.
 
 ## 🌟 Key Features
 - **Dual-Role Authentication :** Integrated custom authentication for both `Members` (customers) and `Staff` (employees) using secure `HandlerInterceptor` and Session Management.
